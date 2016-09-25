@@ -8,6 +8,11 @@ namespace datastruct2
 {
     class Program
     {
+        //function for the user to be able to select options for a queue
+        public void queueOption()
+        {
+            //switch()
+        }
         static void Main(string[] args)
         {
             int iUserChoice1;
@@ -17,7 +22,8 @@ namespace datastruct2
             string sSearchName;
             Boolean bStackmenu = true;
             Console.WriteLine(" 1. Stack\n 2. Queue\n 3. Dictionary\n 4. Exit\n");
-        
+            Queue<string> qUserQueue = new Queue<string>();
+
         iUserChoice1 = Convert.ToInt32(Console.ReadLine());
 
             switch(iUserChoice1)
