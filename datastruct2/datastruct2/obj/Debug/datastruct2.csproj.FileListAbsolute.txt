@@ -1,0 +1,16 @@
+\\mac\home\documents\visual studio 2013\Projects\datastruct2\datastruct2\bin\Debug\datastruct2.exe.config
+C:\Users\JairoMan\Desktop\datastruct2\datastruct2\bin\Debug\datastruct2.exe.config
+C:\Users\JairoMan\Desktop\datastruct2\datastruct2\bin\Debug\datastruct2.exe
+C:\Users\JairoMan\Desktop\datastruct2\datastruct2\bin\Debug\datastruct2.pdb
+C:\Users\JairoMan\Desktop\datastruct2\datastruct2\obj\Debug\datastruct2.csprojResolveAssemblyReference.cache
+C:\Users\JairoMan\Desktop\datastruct2\datastruct2\obj\Debug\datastruct2.exe
+C:\Users\JairoMan\Desktop\datastruct2\datastruct2\obj\Debug\datastruct2.pdb
+C:\Users\JairoMan\Documents\gitdatastruct215\datastruct2\datastruct2\bin\Debug\datastruct2.exe.config
+C:\Users\JairoMan\Documents\gitdatastruct215\datastruct2\datastruct2\obj\Debug\datastruct2.exe
+C:\Users\JairoMan\Documents\gitdatastruct215\datastruct2\datastruct2\obj\Debug\datastruct2.pdb
+C:\Users\shiblon\Desktop\gitmain2\datastruct2\datastruct2\bin\Debug\datastruct2.exe.config
+C:\Users\shiblon\Desktop\gitmain2\datastruct2\datastruct2\obj\Debug\datastruct2.exe
+C:\Users\shiblon\Desktop\gitmain2\datastruct2\datastruct2\obj\Debug\datastruct2.pdb
+C:\Users\shiblon\Desktop\MainGit\datastruct2\datastruct2\bin\Debug\datastruct2.exe.config
+C:\Users\shiblon\Desktop\MainGit\datastruct2\datastruct2\obj\Debug\datastruct2.exe
+C:\Users\shiblon\Desktop\MainGit\datastruct2\datastruct2\obj\Debug\datastruct2.pdb
