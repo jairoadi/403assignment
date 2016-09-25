@@ -76,8 +76,19 @@ namespace datastruct2
 
                                     break;
                                 case 4:
+                                    //asking for user's input
                                     Console.WriteLine("\nWhich item would you like to delete?");
                                     sSearchName = Console.ReadLine();
+
+                                    //this for each will compare the user's entry against the stack
+                                    foreach (string userSearch in myStack)
+                                    {
+                                        if (sSearchName == userSearch)
+                                        {
+                                            
+                                        }
+
+                                    }
                                     
                                     
                                     
@@ -91,7 +102,6 @@ namespace datastruct2
                                    
 
                             }
-                        
 
                     } 
 
