@@ -14,3 +14,6 @@ C:\Users\shiblon\Desktop\gitmain2\datastruct2\datastruct2\obj\Debug\datastruct2.
 C:\Users\shiblon\Desktop\MainGit\datastruct2\datastruct2\bin\Debug\datastruct2.exe.config
 C:\Users\shiblon\Desktop\MainGit\datastruct2\datastruct2\obj\Debug\datastruct2.exe
 C:\Users\shiblon\Desktop\MainGit\datastruct2\datastruct2\obj\Debug\datastruct2.pdb
+C:\Users\JairoMan\Desktop\Gitdocuments\403assignment\datastruct2\datastruct2\bin\Debug\datastruct2.exe.config
+C:\Users\JairoMan\Desktop\Gitdocuments\403assignment\datastruct2\datastruct2\obj\Debug\datastruct2.exe
+C:\Users\JairoMan\Desktop\Gitdocuments\403assignment\datastruct2\datastruct2\obj\Debug\datastruct2.pdb
