@@ -23,3 +23,6 @@ C:\Users\JairoMan\Desktop\Gitdocuments\403assignment\datastruct2\datastruct2\bin
 C:\Users\JairoMan\Desktop\Gitdocuments\403assignment\datastruct2\datastruct2\obj\Debug\datastruct2.exe
 C:\Users\JairoMan\Desktop\Gitdocuments\403assignment\datastruct2\datastruct2\obj\Debug\datastruct2.pdb
 >>>>>>> ae842d6bbf1ea4c0e45dbc482c7d251cad58f015
+C:\Users\JairoMan\Desktop\Gitdocuments\403assignment\datastruct2\datastruct2\bin\Debug\datastruct2.exe
+C:\Users\JairoMan\Desktop\Gitdocuments\403assignment\datastruct2\datastruct2\bin\Debug\datastruct2.pdb
+C:\Users\JairoMan\Desktop\Gitdocuments\403assignment\datastruct2\datastruct2\obj\Debug\datastruct2.csprojResolveAssemblyReference.cache

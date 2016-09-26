@@ -9,10 +9,7 @@ namespace datastruct2
     class Program
     {
         //function for the user to be able to select options for a queue
-        public void queueOption()
-        {
-            //switch()
-        }
+
         static void Main(string[] args)
         {
             int iUserChoice1;
@@ -21,23 +18,29 @@ namespace datastruct2
             int iCount;
             string sSearchName;
             Boolean bStackmenu = true;
-            Console.WriteLine(" 1. Stack\n 2. Queue\n 3. Dictionary\n 4. Exit\n");
+            Boolean bMainmenu = true;
             Queue<string> qUserQueue = new Queue<string>();
+            //Creating a stack datastructure
+            Stack<string> myStack = new Stack<string>();
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
 
-        iUserChoice1 = Convert.ToInt32(Console.ReadLine());
 
-            switch(iUserChoice1)
+
+
+
+            while (bMainmenu == true)
             {
-                case 1://this case will be used for Stack
+                Console.WriteLine(" 1. Stack\n 2. Queue\n 3. Dictionary\n 4. Exit\n");
+                iUserChoice1 = Convert.ToInt32(Console.ReadLine());
 
-                    while (bStackmenu == true)
-                    {
-                        Console.WriteLine("\n1. Add one time to Stack\n2. Add Huge List of Items to Stack\n3. Display Stack\n4. Delete from Stack\n5. Clear Stack\n6. Search Stack\n7. Return to Main Menu\n");
-                        iUserStack = Convert.ToInt32(Console.ReadLine());
+                switch (iUserChoice1)
+                {
+                    case 1://this case will be used for Stack
 
-                        
-                            //Creating a stack datastructure
-                            Stack<string> myStack = new Stack<string>();
+                        while (bStackmenu == true)
+                        {
+                            Console.WriteLine("\n1. Add one time to Stack\n2. Add Huge List of Items to Stack\n3. Display Stack\n4. Delete from Stack\n5. Clear Stack\n6. Search Stack\n7. Return to Main Menu\n");
+                            iUserStack = Convert.ToInt32(Console.ReadLine());
 
                             //switch statement used to allow the user to select a Stack menu
                             switch (iUserStack)
@@ -53,7 +56,7 @@ namespace datastruct2
 
                                     for (iCount = 0; iCount < 2000; iCount++)
                                     {
-                                        
+
                                         sStackname = "New Entry " + Convert.ToString((iCount + 1));
                                         myStack.Push(sStackname);
                                     }
@@ -80,46 +83,81 @@ namespace datastruct2
                                     Console.WriteLine("\nWhich item would you like to delete?");
                                     sSearchName = Console.ReadLine();
 
+
                                     //this for each will compare the user's entry against the stack
                                     foreach (string userSearch in myStack)
                                     {
-                                        if (sSearchName == userSearch)
+                                        if (sSearchName.ToLower() == userSearch.ToLower())
                                         {
-                                            
+                                            myStack.Pop();
+                                            break;
+
                                         }
 
                                     }
-                                    
-                                    
-                                    
+
                                     break;
                                 case 5:
+                                    Console.WriteLine("Are you sure you want to wipe out all the data?(y/n)");
+                                    string sDecision = Console.ReadLine();
+                                    if (sDecision == "y")
+                                    {
+                                        myStack.Clear();
+                                    }
+
                                     break;
                                 case 6:
+                                    Console.WriteLine("\nWhich item would you like to search?");
+                                    sSearchName = Console.ReadLine();
+
+                                    foreach (string userSearch in myStack)
+                                    {
+                                        sw.Start();
+                                        if (sSearchName.ToLower() == userSearch.ToLower())
+                                        {
+                                            sw.Stop();
+                                            Console.WriteLine("The item: " + sSearchName + " was found");
+                                            Console.WriteLine("It took: " + sw.Elapsed + " to find the item");
+                                        }
+                                        else
+                                        {
+                                            sw.Stop();
+                                            Console.WriteLine("The item: " + sSearchName + " wasn't found");
+                                        }
+
+                                    }
                                     break;
                                 case 7:
-                                    break;
-                                   
 
+                                    bStackmenu = false;
+
+                                    break;
                             }
 
-                    } 
+
+                        }
+
+                        break;
+
+                    //this case will be used for queue
+                    case 2:
+                        break;
+
+                    //this case will be used for Dictionary
+                    case 3:
+                        break;
+                   
+                    //this case will be used to exit the menu
+                    case 4:
+                        bMainmenu = false;
+                        break;
+                          
 
 
-                    
-                    Console.ReadLine();
-                    break;
-                case 2:
-                    Console.WriteLine("1. Add one time to Queue\n2. Add Huge List of Items to Queue\n3. Display Queue\n4. Delete from Queue\n5. Clear Queue\n6. Search Queue\n7. Return to Main Menu");
-                    break;
-                case 3:
-                    Console.WriteLine("1. Add one item to Dictionary\n2. Add Huge List of Items to Dictionary\n3. Display Dictionary\n4. Delete from Dictionary\n5. Clear Dictionary\n6. Search Dictionary\n7. Return to Main Menu");
-                    break;
-                //case4:
-                    
+                }
+
 
             }
-
-            }
-}
+        }
+    }
 }
