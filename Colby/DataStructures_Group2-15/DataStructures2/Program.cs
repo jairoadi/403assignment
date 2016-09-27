@@ -7,16 +7,17 @@
  * DATA STRUCTURES GROUP ASSIGNMENT
  * --------------------------------
  * 
- * This program simulates a stack, queue, and dictionary data structure. The program has 7 built in options for each
+ * This program simulates a stack, queue, and dictionary data structure. The program has 8 built in options for each
  * structure, allowing the user to 1) Add one item to the structure, 2) Add a Huge List of items to the structure,
- * 3) Display the structure, 4) Delete from the structure, 5) Clear the structure, 6) Search the structure, and 
- * 7) Return to the main mainu.
+ * 3) Display the structure, 4) Delete from the structure, 5) Clear the structure, 6) Search the structure, 7) Import 
+ * from File, and 8) Return to the main menu.
  */
 
 
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace DataStructures2
     {
 
         #region GLOBAL VARIABLES
-           /*These are variables that must have universal access throughout the program.
+        /*These are variables that must have universal access throughout the program.
             Some, like sInput and iInput are meant to be constantly overriden*/
         public static Stack<string> myStack = new Stack<string>();
         public static Queue<string> myQueue = new Queue<string>();
@@ -41,7 +42,7 @@ namespace DataStructures2
 
         #region MAIN MENU
         static public void menu()
-            /*The first function call of the program. Allows the user to specify which data structure to work with*/
+        /*The first function call of the program. Allows the user to specify which data structure to work with*/
         {
             Console.WriteLine("\n---------");
             Console.WriteLine("MAIN MENU\n");
@@ -67,14 +68,15 @@ namespace DataStructures2
                     case 3:
                         dictionaryMenu();
                         break;
-                    case 4:
+                    case 4:         //exits program
                         break;
-                    default:
+                    default:        //invalid int input, restarts menu
+                        menu();
                         break;
                 }
 
             }
-            catch
+            catch           //invalid input that is not int
             {
                 menu();
             }
@@ -94,7 +96,8 @@ namespace DataStructures2
             Console.WriteLine("4. Delete from Stack");
             Console.WriteLine("5. Clear Stack");
             Console.WriteLine("6. Search Stack");
-            Console.WriteLine("7. Return to Main Menu");
+            Console.WriteLine("7. Import from File");
+            Console.WriteLine("8. Return to Main Menu");
             Console.WriteLine("----------");
 
 
@@ -122,7 +125,10 @@ namespace DataStructures2
                     case 6:
                         searchStack();
                         break;
-                    case 7:
+                    case 7:             //reads in file data 
+                        readFileStack();
+                        break;
+                    case 8:
                         menu();
                         break;
                     default:
@@ -141,7 +147,7 @@ namespace DataStructures2
             myStack.Push(Console.ReadLine());           //Push item on stack
             stackMenu();
 
-        }
+        }       //add one item to stack
         static public void addManyStack()
         {
             myStack.Clear();
@@ -150,17 +156,17 @@ namespace DataStructures2
                 myStack.Push("New Entry " + i);
             }
             stackMenu();
-        }
-        static public void displayStack()       //for each string in stack
+        }       //add many items to stack
+        static public void displayStack()    
         {
             Console.WriteLine("");
-            foreach (string el in myStack)
+            foreach (string el in myStack)         //for each string in stack
             {
                 Console.WriteLine(el);
             }
             stackMenu();
-        }
-        static public void deleteFromStack()            
+        }       //display stack
+        static public void deleteFromStack()
         {
             Console.Write("\nWhat item would you like to delete from the stack? ");
             sInput = Console.ReadLine();
@@ -203,12 +209,12 @@ namespace DataStructures2
             }
 
             stackMenu();
-        }
+        }       //delete value from stack
         static public void clearStack()
         {
             myStack.Clear();
             stackMenu();
-        }
+        }       //clear stack
         static public void searchStack()
         {
             Console.Write("What item would you like to search for in the stack? ");
@@ -233,7 +239,43 @@ namespace DataStructures2
             Console.ForegroundColor = ConsoleColor.White;
             stackMenu();
 
-        }
+        }       //search stack
+        static public void readFileStack()
+        {
+            myStack.Clear();
+            int counter = 0;
+            string line;
+
+            // Read the file and display it line by line.
+            Console.Write("What is the path of the file you want imported? ");
+            string fileName = Console.ReadLine();
+
+            if (!File.Exists(fileName))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;         //couldn't find it
+                Console.WriteLine("\nInvalid path");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else
+            {
+
+                System.IO.StreamReader file =
+            new System.IO.StreamReader(fileName);
+                while ((line = file.ReadLine()) != null)
+                {
+                    myStack.Push(line);
+                    counter++;
+                }
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\nFile found!");
+                Console.ForegroundColor = ConsoleColor.White;
+                file.Close();
+            }
+
+
+
+            stackMenu();
+        }       //read file from computer and add values to stack
         #endregion
 
         #region QUEUE
@@ -247,7 +289,9 @@ namespace DataStructures2
             Console.WriteLine("4. Delete from Queue");
             Console.WriteLine("5. Clear Queue");
             Console.WriteLine("6. Search Queue");
-            Console.WriteLine("7. Return to Main Menu");
+            Console.WriteLine("7. Import from File");
+            Console.WriteLine("8. Return to Main Menu");
+
             Console.WriteLine("----------");
 
 
@@ -276,6 +320,9 @@ namespace DataStructures2
                         searchQueue();
                         break;
                     case 7:
+                        readFileQueue();
+                        break;
+                    case 8:
                         menu();
                         break;
                     default:
@@ -294,7 +341,7 @@ namespace DataStructures2
             myQueue.Enqueue(Console.ReadLine());
             queueMenu();
 
-        }
+        }       //add one item to queue
         static public void addManyQueue()
         {
             myQueue.Clear();
@@ -303,7 +350,7 @@ namespace DataStructures2
                 myQueue.Enqueue("New Entry " + i);
             }
             queueMenu();
-        }
+        }       //add many items to queue
         static public void displayQueue()
         {
             Console.WriteLine("");
@@ -312,7 +359,7 @@ namespace DataStructures2
                 Console.WriteLine(el);
             }
             queueMenu();
-        }
+        }       //display queue
         static public void deleteFromQueue()
         {
             Console.Write("\nWhat item would you like to delete from the queue? ");
@@ -356,12 +403,12 @@ namespace DataStructures2
             }
 
             queueMenu();
-        }
+        }       //delete value from queue
         static public void clearQueue()
         {
             myQueue.Clear();
             queueMenu();
-        }
+        }       //clear queue
         static public void searchQueue()
         {
             Console.Write("What item would you like to search for in the queue? ");
@@ -386,6 +433,39 @@ namespace DataStructures2
             Console.ForegroundColor = ConsoleColor.White;
             queueMenu();
 
+        }       //search for value in queue
+        static public void readFileQueue()      //read in file and put into queue
+        {
+            myQueue.Clear();
+            int counter = 0;
+            string line;
+
+            // Read the file and display it line by line.
+            Console.Write("What is the path of the file you want imported? ");
+            string fileName = Console.ReadLine();
+
+            if (!File.Exists(fileName))             //file doesn't exist!
+            {
+                Console.ForegroundColor = ConsoleColor.Red;      
+                Console.WriteLine("\nInvalid path");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else
+            {
+
+                System.IO.StreamReader file =
+            new System.IO.StreamReader(fileName);
+                while ((line = file.ReadLine()) != null)            //if there is still more text to be read
+                {
+                    myQueue.Enqueue(line);
+                    counter++;
+                }
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\nFile found!");         //found it
+                Console.ForegroundColor = ConsoleColor.White;
+                file.Close();           //close file
+            }
+            queueMenu();
         }
         #endregion
 
@@ -400,7 +480,9 @@ namespace DataStructures2
             Console.WriteLine("4. Delete from Dictionary");
             Console.WriteLine("5. Clear Dictionary");
             Console.WriteLine("6. Search Dictionary");
-            Console.WriteLine("7. Return to Main Menu");
+            Console.WriteLine("7. Import from File");
+            Console.WriteLine("8. Return to Main Menu");
+
             Console.WriteLine("---------------");
 
 
@@ -430,6 +512,9 @@ namespace DataStructures2
                         searchDictionary();
                         break;
                     case 7:
+                        readFileDictionary();
+                        break;
+                    case 8:
                         menu();
                         break;
                     default:
@@ -449,7 +534,7 @@ namespace DataStructures2
             myDictionary.Add(Console.ReadLine(), dictCounter);
             dictionaryMenu();
 
-        }
+        }           //add one item to dictionary
         static public void addManyDictionary()
         {
             myDictionary.Clear();
@@ -459,7 +544,7 @@ namespace DataStructures2
                 myDictionary.Add("New Entry " + i, i);
             }
             dictionaryMenu();
-        }
+        }       //ad many items to dictionary
         static public void displayDictionary()
         {
             Console.WriteLine("");
@@ -468,7 +553,7 @@ namespace DataStructures2
                 Console.WriteLine(el);
             }
             dictionaryMenu();
-        }
+        }       //display dictionary
         static public void deleteFromDictionary()
         {
             Console.Write("\nWhat item would you like to delete from the dictionary? ");
@@ -488,13 +573,13 @@ namespace DataStructures2
                 Console.ForegroundColor = ConsoleColor.White;
             }
             dictionaryMenu();
-        }
+        }       //delete value from dictionary by key
         static public void clearDictionary()
         {
             myDictionary.Clear();
             dictCounter = 0;
             dictionaryMenu();
-        }
+        }       //clear dictionary
         static public void searchDictionary()
         {
             Console.Write("What item would you like to search for in the dictionary? ");
@@ -515,6 +600,39 @@ namespace DataStructures2
             Console.ForegroundColor = ConsoleColor.White;
             dictionaryMenu();
 
+        }       //search dictionary by key
+        static public void readFileDictionary()         //read in file and add values to dictionary
+        {
+            myDictionary.Clear();
+            int counter = 0;
+            string line;
+
+            // Read the file and display it line by line.
+            Console.Write("What is the path of the file you want imported? ");
+            string fileName = Console.ReadLine();
+
+            if (!File.Exists(fileName))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;        
+                Console.WriteLine("\nInvalid path");                //file doesn't exist at that location
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else
+            {
+
+                System.IO.StreamReader file =
+            new System.IO.StreamReader(fileName);
+                while ((line = file.ReadLine()) != null)
+                {
+                    myDictionary.Add(line, counter);                //add to dictionary and use counter for value
+                    counter++;
+                }
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\nFile found!");             //found it
+                Console.ForegroundColor = ConsoleColor.White;
+                file.Close();
+            }
+            dictionaryMenu();
         }
         #endregion
 
@@ -522,10 +640,10 @@ namespace DataStructures2
         static void Main(string[] args)
         {
             Console.Write("Colby Thomas");
-            menu();
+            menu();     //first call
 
             Console.WriteLine("\nPress any key to exit...");
-            Console.ReadKey();
+            Console.ReadKey();              //exit program
         }
         #endregion
     }
